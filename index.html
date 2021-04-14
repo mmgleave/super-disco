@@ -28,98 +28,19 @@
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
-    <div class="container" id="timeblocks-container">
+    <!-- container for all rows -->
+    <div class="container" id="all-rows-container">
+
       <!-- 9 AM  -->
-      <div class="row">
-        <div class="col-2 hour border-bottom border-right">
-          <p>09:00 AM</p>
+      <div id="data-row" class="row">
+        <div id="hour-text-div" class="col-2 hour border-bottom border-right">
+          <p id="hour-text">9:00 AM</p>
         </div>
-        <div class="col-9 hour border-bottom border-right">
-          <p>Event Text</p>
-        </div>
-          <button class=" col-1 saveBtn"><i class="far fa-save"></i></button>
+        <div id="event-text-div" class="col-9 hour border-bottom border-right">
+          <p id="event-text"></p>
+        </div id="save-btn-div">
+          <button id="save-btn" class="col-1 saveBtn"><i class="far fa-save"></i></button>
       </div>
-      <!-- 10 AM -->
-      <div class="row">
-        <div class="col-2 hour border-bottom border-right">
-          <p>10:00 AM</p>
-        </div>
-        <div class="col-9 hour border-bottom border-right">
-          <p>Event Text</p>
-        </div>
-          <button class=" col-1 saveBtn"><i class="far fa-save"></i></button>
-      </div>
-      <!-- 11 AM -->
-      <div class="row">
-        <div class="col-2 hour border-bottom border-right">
-          <p>11:00 AM</p>
-        </div>
-        <div class="col-9 hour border-bottom border-right">
-          <p>Event Text</p>
-        </div>
-          <button class=" col-1 saveBtn"><i class="far fa-save"></i></button>
-      </div>
-      <!-- 12 PM -->
-      <div class="row">
-        <div class="col-2 hour border-bottom border-right">
-          <p>12:00 PM</p>
-        </div>
-        <div class="col-9 hour border-bottom border-right">
-          <p>Event Text</p>
-        </div>
-          <button class=" col-1 saveBtn"><i class="far fa-save"></i></button>
-      </div>
-      <!-- 1 PM -->
-      <div class="row">
-        <div class="col-2 hour border-bottom border-right">
-          <p>01:00 PM</p>
-        </div>
-        <div class="col-9 hour border-bottom border-right">
-          <p>Event Text</p>
-        </div>
-          <button class=" col-1 saveBtn"><i class="far fa-save"></i></button>
-      </div>
-      <!-- 2 PM -->
-      <div class="row">
-        <div class="col-2 hour border-bottom border-right">
-          <p>02:00 PM</p>
-        </div>
-        <div class="col-9 hour border-bottom border-right">
-          <p>Event Text</p>
-        </div>
-          <button class=" col-1 saveBtn"><i class="far fa-save"></i></button>
-      </div>
-      <!-- 3 PM -->
-      <div class="row">
-        <div class="col-2 hour border-bottom border-right">
-          <p>03:00 PM</p>
-        </div>
-        <div class="col-9 hour border-bottom border-right">
-          <p>Event Text</p>
-        </div>
-          <button class=" col-1 saveBtn"><i class="far fa-save"></i></button>
-      </div>
-      <!-- 4 PM -->
-      <div class="row">
-        <div class="col-2 hour border-bottom border-right">
-          <p>04:00 PM</p>
-        </div>
-        <div class="col-9 hour border-bottom border-right">
-          <p>Event Text</p>
-        </div>
-          <button class=" col-1 saveBtn"><i class="far fa-save"></i></button>
-      </div>
-      <!-- 5 PM -->
-      <div class="row">
-        <div class="col-2 hour border-bottom border-right">
-          <p>05:00 PM</p>
-        </div>
-        <div class="col-9 hour border-bottom border-right">
-          <p>Event Text</p>
-        </div>
-          <button class=" col-1 saveBtn"><i class="far fa-save"></i></button>
-      </div>
-    </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
