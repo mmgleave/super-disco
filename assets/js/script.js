@@ -1,20 +1,7 @@
-// header changes
 // append current day to p w ID "currentDay"
 var currentDate = moment().format('dddd MMMM Do YYYY');
 var currentDayEl = $("#currentDay");
 currentDayEl.text(currentDate);
-
-// add the ability to add a task
-
-// whole container
-var allBlocksContainer = $("#all-rows-container");
-
-// row for nine
-var rowNine = $("#nine");
-
-function hourCheck(blockHour){
-
-}
 
 hourArray = [
     "09:00 AM", 
@@ -26,7 +13,11 @@ hourArray = [
     "03:00 PM",
     "04:00 PM",
     "05:00 PM",
-]
+];
+
+eventsArray = [
+
+];
 
 // time block color conditions (needs to be fixed for 9AM block)
 for(i=0; i<hourArray.length; i++){
@@ -49,15 +40,15 @@ for(i=0; i<hourArray.length; i++){
     } else {
         eventBlock.addClass("future");
     }
-}
+};
 
 // on click for an empty time block open new text area
 // this needs to be updated to prevent little border on left
 $(".event-block").on("click", function(){
+    var newEvent = $("<textarea>");
+    newEvent.addClass("col-12 newTextArea")
     // add new event if p is empty
     if($(this).children("p").text() === ""){
-        var newEvent = $("<textarea>");
-        newEvent.addClass("col-12 newTextArea")
         $(this).children("p").replaceWith(newEvent);
         newEvent.trigger("focus");
         newEventSave();
@@ -65,32 +56,27 @@ $(".event-block").on("click", function(){
 
         // on save update p with new text area input (separate function)
     } else {
+        var existingDescription = $(this).children("p").text();
+        newEvent.text(existingDescription);
+        $(this).children("p").replaceWith(newEvent);
+        newEvent.trigger("focus");
     }
 });
 
 newEventSave = function(){
     // update p text on save for new event
     $(".saveBtn").on("click", function(){
+        var newEventP = document.createElement("p");
+        newEventP.addClass = "description event-text";
         var thisDiv = $(this).parent(".row");
         var thisEventBlock = thisDiv.children(".event-block");
         var thisEventTextArea = thisEventBlock.children(".newTextArea");
         var thisEventTextValue = thisEventTextArea.val();
-        var newEventP = document.createElement("p");
         newEventP.textContent = thisEventTextValue;
-        newEventP.addClass = "description";
         thisEventTextArea.replaceWith(newEventP);
+        // add the text to an array and store in local storage
     });
-}
-
-updateEventSave = functio(){
-    // update p text on save for existing event
-    $(".saveBtn").on("click", function(){
-        
-    });
-}
-
-
-
+};
 
 
 // // array for all created events
@@ -128,22 +114,3 @@ updateEventSave = functio(){
 //     // function to save to local storage when user clicks save button
 //     // figure out how to add local storage persistence for each new task
     
-// // add styling changes if current hour is before, after, or the same as hour in p tag for each block
-
-// // turns hour p text into moment format
-// var hourMoment = moment(hourText, "LT").format("H");
-
-// // variable to get the current hour update every minute
-// var currentHour = moment().format("H");
-
-// // updates currentHour to new value every 1 minute
-// currentHourUpdate = function(){
-//     currentHour = moment().format("H");
-// }
-// setInterval(currentHourUpdate, 60000);
-// console.log(hourMoment);
-// console.log(currentHour);
-
-// // changes background of time block depending on past current or future
-// if(hourMoment === currentHour) {
-// }
