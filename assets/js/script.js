@@ -17,23 +17,27 @@ hourArray = [
 
 // time block color conditions (needs to be fixed for 9AM block)
 for(i=0; i<hourArray.length; i++){
+    var now = moment().format("HH");
+
+    // replace "time" in display with next hour for each block
     var hourReplace = $("#hourtext-" + [i]);
     hourReplace.text(hourArray[i]);
 
     // get only hour in military time of [i]
-    var hrMomentMil = moment(hourArray[i], "LT").format("H");
+    var hrMomentMil = moment(hourArray[i], "LT").format("HH");
+    console.log(hrMomentMil < now);
 
-    // event block of currnt i
+    // event block of current i
     var eventBlock = ($("#eventblock-" + [i]));
 
-    // compare hr of i to now
-    var now = moment().format("H");
-    if (hrMomentMil === now){
-        eventBlock.addClass("present");
-    } else if(hrMomentMil < now){
-        eventBlock.addClass("past");
+    if(hrMomentMil < now){
+        eventBlock.addClass("past")
+    } else if(hrMomentMil === now){
+        eventBlock.addClass("present")
+    } else if(hrMomentMil > now){
+        eventBlock.addClass("future")
     } else {
-        eventBlock.addClass("future");
+
     }
 };
 
